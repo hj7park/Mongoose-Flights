@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jay Air</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Add Flight</h1>
+    <form action="/flights/new" method ="post">
+    <p>
+      <label for="airline">Choose Airline :</label>
+      <select id="airline" name="airline">
+        <option style="display:none"></option>
+        <option value="American" >American</option>
+        <option value="Southwest" >Southwest</option>
+        <option value="United" >United</option>
+      </select>
+    </p>
+    <p>
+      <label for="airport">Choose Airport :</label>
+      <select id="airport" name="airport">
+        <option value="AUS" >AUS</option>
+        <option value="DFW" >DFW</option>
+        <option value="DEN" selected>DEN</option>
+        <option value="LAX" >LAX</option>
+        <option value="SAN" >SAN</option>
+      </select>
+    </p>
+    <p><label for="flightNo">Enter Flight Number :</label>
+    <input id="flightNo" name="flightNo" type="number" value=""></p>
+    <p><label for="departs">Choose Date :</label>
+    <input id="departs" name="departs" type="datetime-local" value="<%= departsDate %>"></p>
+    <input type="submit" value="OK">
+    </form>
+  </body>
+</html>

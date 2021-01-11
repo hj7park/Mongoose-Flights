@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jay Air</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Add Flight</h1>
+    <form action="/flights/<%= flightID %>/tickets/new" method ="post">
+    <p>
+      <label for="seat">Choose Seat('A1' thru 'F99') :</label>
+      <input id="seat" name="seat" required pattern="[A-F][1-9]\d?">
+    </p>
+    <p>
+      <label for="price">Choose Price :</label>
+      <input id="price" name="price">
+    </p>
+    <input type="submit" value="OK">
+    </form>
+  </body>
+</html>

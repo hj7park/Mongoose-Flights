@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jay Air</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Flight <%= flight.flightNo %></h1>
+    <p> AIRPORT : <%= flight.airport %></p>
+    <p> AIRLINE : <%= flight.airline %></p>
+    <p> DEPARTURE TIME: <%= flight.departs %></p>
+    <p> FLIGHT NUMBER : <%= flight.flightNo %></p>
+    <p> DESTINATION : <% flight.destinations.forEach(function(destination){%>
+      <p>
+        <span style="color:blue;"><%= destination.airport %></span>
+        <%= destination.arrival %>
+        <form action="/flights/<%= flight._id%>/<%= destination._id %>" method="post">
+          <input type="submit" value="X">
+        </form>
+      </p>   
+    <% }) %>
+    </p>
+    <h4>ADD NEW DESTINATION</h4>
+    <form action="/flights/<%= flight._id%>" method="post">
+      <p>
+        <label for="airport">DESTINATION AIRPORT : </label>
+        <select name="airport">
+          <% airportList.forEach(function(airportName){ %>
+            <option value="<%= airportName %>"><%= airportName %></option>
+          <% }) %>
+        </select>
+      </p>
+      <p>
+        <label for="arrival">ARRIVAL DATE : </label>
+        <input id="arrival" name="arrival" type="datetime-local">
+      </p>
+      <p>
+        <input type="submit" value="ADD">
+      </p>
+    </form>
+    <h3>Tickets</h3>
+    <table><% tickets.forEach(function(ticket){ %>
+      <tr>
+        <th><%= ticket.seat%></th>
+        <th>$<%= ticket.price%></th>
+        <th><form action="/flights/<%= flight._id%>/tickets/<%= ticket._id %>" method="post">
+            <input type="submit" value="X">
+          </form>
+        </th>
+    </tr>
+    <%})%>
+    </table>
+    <a href="/flights/<%= flight._id%>/tickets/new"> Add Ticket </a>
+  </body>
+</html>
