@@ -9,7 +9,7 @@
     <form action="/flights/new" method ="post">
     <p>
       <label for="airline">Choose Airline :</label>
-      <select id="airline" name="airline">
+      <select id="airline" name="airline" required>
         <option style="display:none"></option>
         <option value="American" >American</option>
         <option value="Southwest" >Southwest</option>
@@ -18,7 +18,7 @@
     </p>
     <p>
       <label for="airport">Choose Airport :</label>
-      <select id="airport" name="airport">
+      <select id="airport" name="airport" required>
         <option value="AUS" >AUS</option>
         <option value="DFW" >DFW</option>
         <option value="DEN" selected>DEN</option>
@@ -27,9 +27,9 @@
       </select>
     </p>
     <p><label for="flightNo">Enter Flight Number :</label>
-    <input id="flightNo" name="flightNo" type="number" value=""></p>
+    <input id="flightNo" name="flightNo" type="number" value="" required></p>
     <p><label for="departs">Choose Date :</label>
-    <input id="departs" name="departs" type="datetime-local" value="<%= departsDate %>"></p>
+    <input id="departs" name="departs" type="datetime-local" value="<%= departsDate %>" required></p>
     <input type="submit" value="OK">
     </form>
   </body>
